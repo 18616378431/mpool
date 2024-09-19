@@ -1,0 +1,8 @@
+ServerPort = 1234
+BindIP = "0.0.0.0"
+PidFile = ""
+LoginDatabaseInfo     = "127.0.0.1;3506;root;123456;mpool"
+LoginDatabase.WorkerThreads = 1
+LoginDatabase.SynchThreads = 1
+Database.Reconnect.Seconds = 15
+Database.Reconnect.Attempts = 20

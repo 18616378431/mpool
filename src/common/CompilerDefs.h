@@ -1,0 +1,41 @@
+﻿#ifndef COMPILERDEFS_H_
+#define	COMPILERDEFS_H_
+
+//检测目标平台
+#define POOL_PLATFORM_WINDOWS	0
+#define POOL_PLATFORM_UNIX		1
+#define POOL_PLATFORM_APPLE		2
+#define POOL_PLATFORM_INTEL		3
+
+#if defined( _WIN64 )
+#define POOL_PLATFORM POOL_PLATFORM_WINDOWS
+#elif defined( __WIN32__ ) || defined( WIN32 ) || defined( _WIN32 )
+#define POOL_PLATFORM POOL_PLATFORM_WINDOWS
+#elif defined( __APPLE_CC__ )
+#define POOL_PLATFORM POOL_PLATFORM_APPLE
+#elif defined( __INTEL_COMPILER )
+#define POOL_PLATFORM POOL_PLATFORM_INTEL
+#else
+#define POOL_PLATFORM POOL_PLATFORM_UNIX
+#endif
+
+//检测编译器
+#define POOL_COMPILER_MICROSOFT	0
+#define POOL_COMPILER_GNU		1
+#define POOL_COMPILER_BORLAND	2
+#define POOL_COMPILER_INTEL		3
+
+#ifdef _MSC_VER
+#define POOL_COMPILER POOL_COMPILER_MICROSOFT
+#elif defined( __BORLANDC__ )
+#define POOL_COMPILER POOL_COMPILER_BORLAND
+#elif defined( __INTEL_COMPILER )
+#define POOL_COMPILER POOL_COMPILER_INTEL
+#elif defined( __GNUC__ )
+#define POOL_COMPILER POOL_COMPILER_GNU
+#define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
+#else
+#error "FATAL ERROR: Unknown compiler."
+#endif
+
+#endif
