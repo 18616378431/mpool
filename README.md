@@ -39,6 +39,26 @@ D:/local/boost_1_74_0(boost根目录)
 
 vs提示错误文件起始位置 notepad++将文件修改位utf8-bom
 
+### 编译命令
+
+[1]cd mpool
+[2]mkdir build
+[3]cd build
+
+ubuntu
+cmake ../ -DCMAKE_INSTALL_PREFIX=/www/mpool/build/bin
+
+macos
+cmake ../ -DCMAKE_INSTALL_PREFIX=/www/mpool/build/bin 
+    -DMYSQL_ADD_INCLUDE_PATH=/opt/homebrew/include/mysql 
+    -DMYSQL_LIBRARY=/opt/homebrew/lib/libmysqlclient.dylib 
+    -DREADLINE_INCLUDE_DIR=/opt/homebrew/opt/readline/include 
+    -DREADLINE_LIBRARY=/opt/homebrew/opt/readline/lib/libreadline.dylib 
+    -DOPENSSL_INCLUDE_DIR="$OPENSSL_ROOT_DIR/include" 
+    -DOPENSSL_SSL_LIBRARIES="$OPENSSL_ROOT_DIR/lib/libssl.dylib" 
+    -DOPENSSL_CRYPTO_LIBRARIES="$OPENSSL_ROOT_DIR/lib/libcrypto.dylib"
+
+### *windows下使用cmakegui工具进行设置*
 
 ## 运行日志
 ![运行日志](./img/serverlog.png)
