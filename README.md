@@ -43,3 +43,13 @@ vs提示错误文件起始位置 notepad++将文件修改位utf8-bom
 ## 运行日志
 ![运行日志](./img/serverlog.png)
 
+### 相关项目
+
+项目  |  名称  |  地址
+----  ----  ----
+mpool | SRP6服务端 | [mpool](https://github.com/18616378431/mpool)
+
+SRP6ClientForQt6 | SRP6客户端 | [SRP6ClientForQt6](https://github.com/18616378431/SRP6ClientForQt6)
+
+SRP6Register | SRP6注册 ｜  [SRP6Register](https://github.com/18616378431/SRP6Register)
+
