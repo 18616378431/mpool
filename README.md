@@ -62,6 +62,27 @@ cmake ../ -DCMAKE_INSTALL_PREFIX=/www/mpool/build/bin
 ### *windows下使用cmakegui工具进行设置*
 ```
 
+### 数据库表结构及测试数据
+
+[数据库](./db/account.sql)
+
+```
+CREATE TABLE `account` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'Identifier',
+  `username` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `salt` binary(32) NOT NULL,
+  `verifier` binary(32) NOT NULL,
+  `session_key` binary(40) DEFAULT NULL,
+  `last_ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '127.0.0.1',
+  `last_login` timestamp NULL DEFAULT NULL,
+  `locale` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `os` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Account System';
+```
+
+
 ## 运行日志
 ![运行日志](./img/serverlog.png)
 
