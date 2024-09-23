@@ -23,6 +23,22 @@ brew install openssl@3 cmake boost bash bash-completion mysql-client@8.0
 ### ubuntu22.04:
 `apt-get update && apt-get install git cmake make gcc g++ clang libmysqlclient-dev libssl-dev libboost-all-dev`
 
+*arm版本的ubuntu boost会报编译时错误 注释掉这几句*
+*vim /usr/include/boost/predef/hardware/simd.h line 123*
+
+```c++
+118 // We check if SIMD extension of multiples architectures have been detected,
+119 // if yes, then this is an error!
+120 //
+121 // NOTE: _X86_AMD implies _X86, so there is no need to check for it here!
+122 //
+123 //#if defined(BOOST_HW_SIMD_ARM_AVAILABLE) && defined(BOOST_HW_SIMD_PPC_AVAILABLE) ||\
+124 //    defined(BOOST_HW_SIMD_ARM_AVAILABLE) && defined(BOOST_HW_SIMD_X86_AVAILABLE) ||\
+125 //    defined(BOOST_HW_SIMD_PPC_AVAILABLE) && defined(BOOST_HW_SIMD_X86_AVAILABLE)
+126 //#   error "Multiple SIMD architectures detected, this cannot happen!"
+127 //#endif
+```
+
 ### win:
 `手动安装boost库及mysql客户端(集成环境一般带有mysql开发库)、openssl3.0`
 
