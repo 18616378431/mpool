@@ -78,6 +78,34 @@ cmake ../ -DCMAKE_INSTALL_PREFIX=/www/mpool/build/bin
 ### *windows下使用cmakegui工具进行设置*
 ```
 
+### 服务端配置
+
+服务配置文件位于*DCMAKE_INSTALL_PREFIX/etc/logon.conf.dist*目录下
+
+建议将logon.conf.dist拷贝一份为logon.conf(*dist文件必须存在,共两份文件*)
+
+logon.conf.dist //模板文件
+logon.conf//实际配置文件
+
+```
+//服务运行端口
+ServerPort = 1234
+//监听ip
+BindIP = "0.0.0.0"
+//进程id
+PidFile = ""
+//数据库连接信息
+LoginDatabaseInfo     = "127.0.0.1;3506;root;123456;mpool"
+//数据库异步线程数量
+LoginDatabase.WorkerThreads = 1
+//同步连接数量
+LoginDatabase.SynchThreads = 1
+//重连间隔
+Database.Reconnect.Seconds = 15
+//重连尝试次数
+Database.Reconnect.Attempts = 20
+```
+
 ### 数据库表结构及测试数据
 
 [数据库](./db/account.sql)
