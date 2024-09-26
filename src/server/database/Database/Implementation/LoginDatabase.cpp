@@ -11,7 +11,7 @@ void LoginDatabaseConnection::DoPrepareStatements()
 //	PrepareStatement(LOGIN_UPD_TEST,
 //                     "update test set count = count + 1 where id = ?", CONNECTION_ASYNC);
     PrepareStatement(LOGIN_SEL_LOGONCHALLENGE,
-                     "SELECT a.id, a.username, a.last_ip, a.salt, a.verifier FROM account a WHERE a.username = ? limit 1",
+                     "SELECT id, username, last_ip, salt, verifier FROM account a WHERE username = ? limit 1",
                      CONNECTION_SYNCH);
     PrepareStatement(LOGIN_UPD_LOGONPROOF, "UPDATE account SET session_key = ?, last_ip = ?, last_login = NOW(), locale = ?, os = ? WHERE username = ?",
                      CONNECTION_SYNCH);
