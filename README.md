@@ -134,7 +134,7 @@ CREATE TABLE `account` (
 
 项目  |  名称  |  地址
 ----  ----  ----
-mpool | SRP6服务端 | [mpool](https://github.com/18616378431/mpool)
+mpool | SRP6服务端 | [mpool](https://github.com/18616378431/mpool) Qt6实现的服务端[mpoolSRP6ServerForQt](https://github.com/18616378431/mpoolSRP6ServerForQt)
 
 SRP6ClientForQt6 | SRP6客户端 | [SRP6ClientForQt6](https://github.com/18616378431/SRP6ClientForQt6)
 
